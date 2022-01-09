@@ -3,6 +3,7 @@ module.exports = {
     siteUrl: "https://www.yourdomain.tld",
     title: "portfolio",
   },
+  pathPrefix: `/portfolio`,
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
