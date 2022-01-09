@@ -3,6 +3,8 @@ import { Detailed, Environment, useGLTF } from "@react-three/drei"
 import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { EffectComposer, DepthOfField } from '@react-three/postprocessing'
 import React, { Suspense, useRef, useState } from "react"
+import { StaticImage } from "gatsby-plugin-image"
+
 import "../style.css"
 
 const BANANA_GLB_PATH = process.env.NODE_ENV === 'development' ? '/banana-v1-transformed.glb' : '/portfolio/banana-v1-transformed.glb'
@@ -119,8 +121,18 @@ export default () => {
       {!isSSR && (
         <Suspense fallback={null}>
           <Bananas speed={speed} />
+          <div className='loading-fade' />
         </Suspense>
       )}
+      <div className='absolute container flex justify-center items-center'>
+        <span className='rounded-full overflow-hidden mr-5 ring-4 ring-amber-400'>
+          <StaticImage src="../images/me.png" width={100} height={100} />
+        </span>
+        <div>
+          <p className='text-5xl font-bold'>Anton Buksa</p>
+          <span>Front end Developer <a href="https://infomaniak.com">@Infomaniak</a></span>
+        </div>
+      </div>
     </main>
   )
 }
