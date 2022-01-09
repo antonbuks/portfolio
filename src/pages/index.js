@@ -11,7 +11,7 @@ function Banana({ index, z, speed }) {
   const { viewport, camera } = useThree()
   // getCurrentViewport is a helper that calculates the size of the viewport
   const { width, height } = viewport.getCurrentViewport(camera, [0, 0, -z])
-  const { nodes, materials } = useGLTF("/banana-v1-transformed.glb")
+  const { nodes, materials } = useGLTF("/portfolio/banana-v1-transformed.glb")
 
   // Local component state, it is safe to mutate because it's fixed data
   const [data] = useState({
