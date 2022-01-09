@@ -110,11 +110,15 @@ function Bananas({
 
 export default () => {
   const [speed, set] = useState(1)
+  const isSSR = typeof window === "undefined"
+
   return (
     <main>
-      <Suspense fallback={null}>
-        <Bananas speed={speed} />
-      </Suspense>
+      {!isSSR && (
+        <Suspense fallback={null}>
+          <Bananas speed={speed} />
+        </Suspense>
+      )}
     </main>
   )
 }
