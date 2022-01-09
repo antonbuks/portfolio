@@ -5,13 +5,15 @@ import { EffectComposer, DepthOfField } from '@react-three/postprocessing'
 import React, { Suspense, useRef, useState } from "react"
 import "../style.css"
 
+const BANANA_GLB_PATH = process.env.NODE_ENV === 'development' ? '/banana-v1-transformed.glb' : '/portfolio/banana-v1-transformed.glb'
+
 function Banana({ index, z, speed }) {
   const ref = useRef()
   // useThree gives you access to the R3F state model
   const { viewport, camera } = useThree()
   // getCurrentViewport is a helper that calculates the size of the viewport
   const { width, height } = viewport.getCurrentViewport(camera, [0, 0, -z])
-  const { nodes, materials } = useGLTF("/portfolio/banana-v1-transformed.glb")
+  const { nodes, materials } = useGLTF(BANANA_GLB_PATH)
 
   // Local component state, it is safe to mutate because it's fixed data
   const [data] = useState({
