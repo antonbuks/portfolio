@@ -1,0 +1,52 @@
+.container {
+  position: relative;
+}
+.container:before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.item {
+  left: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.item a {
+  color: white;
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  padding: 4;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+.item a:hover {
+  color: white;
+  opacity: 1;
+  text-decoration: none;
+}
+.imageContainer > div {
+  height: 100%;
+  left: 0;
+  position: absolute !important;
+  top: 0;
+  width: 100%;
+}
+.imageContainer > div > div {
+  position: static !important;
+}
+.itemColor {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -2;
+}

@@ -1,16 +1,38 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    // siteUrl: "https://www.yourdomain.tld",
     title: "portfolio",
   },
   pathPrefix: `/portfolio`,
   plugins: [
     "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-postcss",
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        lessBabel: true,
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 820,
+              quality: 90,
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'content/projects',
+        path: "content/projects",
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {

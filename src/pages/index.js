@@ -4,10 +4,12 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { EffectComposer, DepthOfField } from '@react-three/postprocessing'
 import React, { Suspense, useRef, useState } from "react"
 import { StaticImage } from "gatsby-plugin-image"
+import { Link } from 'gatsby'
 
 import "../style.css"
 
 const BANANA_GLB_PATH = process.env.NODE_ENV === 'development' ? '/banana-v1-transformed.glb' : '/portfolio/banana-v1-transformed.glb'
+const CROISSANT_GLB_PATH = process.env.NODE_ENV === 'development' ? '/croissant-final.glb' : '/portfolio/croissant-final.glb'
 
 function Banana({ index, z, speed }) {
   const ref = useRef()
@@ -112,7 +114,7 @@ function Bananas({
   )
 }
 
-export default () => {
+const Page = () => {
   const [speed, set] = useState(1)
   const isSSR = typeof window === "undefined"
 
@@ -129,10 +131,17 @@ export default () => {
           <StaticImage src="../images/me.png" width={100} height={100} />
         </span>
         <div>
-          <p className='text-5xl font-bold'>Anton Buksa</p>
-          <span>Front end Developer <a href="https://infomaniak.com">@Infomaniak</a></span>
+          <div className='text-5xl font-bold'>Anton Buksa</div>
+          <div>Front end Developer <a href="https://infomaniak.com">@Infomaniak</a></div>
+          <div>
+            <a href="https://www.linkedin.com/in/anton-buksa-78224bb2" className='mr-5'>LinkedIn</a>
+            <a href="https://github.com/antonbks" className='mr-5'>Github</a>
+            <Link to="" className='mr-5'>Projects</Link>
+          </div>
         </div>
       </div>
     </main>
   )
 }
+
+export default Page;

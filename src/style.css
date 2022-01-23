@@ -20,6 +20,10 @@ main {
   height: 100vh;
 }
 
+p {
+  margin-bottom: 1em;
+}
+
 .loading-fade {
   position: absolute;
   top: 0;
